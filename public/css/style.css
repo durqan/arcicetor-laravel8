@@ -1,0 +1,185 @@
+@font-face {
+    font-family: "Tkachenko Sketch 4F";
+    src: url("/public/fonts/TkachenkoSketch4F-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+.NameOfProject, .BodyOfProject, .UnderLinkOfProject{
+    list-style-type: none;
+    margin-left: 30px;
+    font-family: "Tkachenko Sketch 4F";
+    color: #ff8d2d;
+    text-shadow:
+            -0   -1px 2px #000000,
+            0   -1px 2px #000000,
+            -0    1px 2px #000000,
+            0    1px 2px #000000,
+            -1px -0   2px #000000,
+            1px -0   2px #000000,
+            -1px  0   2px #000000,
+            1px  0   2px #000000,
+            -1px -1px 2px #000000,
+            1px -1px 2px #000000,
+            -1px  1px 2px #000000,
+            1px  1px 2px #000000,
+            -1px -1px 2px #000000,
+            1px -1px 2px #000000,
+            -1px  1px 2px #000000,
+            1px  1px 2px #000000;
+}
+
+.NameOfProject{
+    font-size: xxx-large;
+}
+
+.BodyOfProject li{
+    font-size: x-large;
+}
+
+.LinkOfProject{
+    color: #ff8d2d!important;
+    text-decoration: none;
+}
+
+.UnderLinkOfProject {
+    display:none;
+    color: #ff8d2d!important;
+    text-decoration: none;
+    font-size: medium;
+}
+
+.MenuList {
+    color: #000000 !important;
+    text-decoration: none
+}
+
+header {
+    background-color: rgba(255, 248, 241, 0.94);
+    position: fixed;
+    width: 100%;
+    height: 100px;
+}
+
+.pic2 {
+    background-image: url("/public/pictures/pic-2.jpg");
+    background-size: cover;
+    max-width: 100%;
+}
+
+ul.menu {
+    overflow: hidden;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin-right: 40px;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.header_logo-image {
+    float: left;
+    margin-left: 100px;
+    margin-top: 20px;
+    max-width: 400px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+}
+
+.price {
+    background: white;
+    height: 600px;
+}
+
+.price_container {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.price_basic:hover, .price_work:hover, .price_full:hover {
+    background: #ff8d2d;
+    margin-top: 20px;
+
+}
+
+.price_basic, .price_work, .price_full {
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 15px;
+    height: 400px;
+    width: 350px;
+    text-align: center;
+    align-items: center;
+    -webkit-box-shadow: 1px 1px 30px 15px rgba(34, 60, 80, 0.23);
+    -moz-box-shadow: 1px 1px 30px 15px rgba(34, 60, 80, 0.23);
+    box-shadow: 1px 1px 30px 15px rgba(34, 60, 80, 0.23);
+}
+
+h3 {
+    margin-top: 30px;
+}
+
+h1 {
+    margin-top: 10px;
+}
+
+.height {
+    height: 320px;
+}
+
+.btn-success {
+    width: 200px;
+}
+
+.price_ul li {
+    margin-top: 10px;
+}
+
+ul.price_ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.price_info {
+    padding-top: 20px;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+.footer {
+    padding: 40px 0px;
+    text-align: center;
+    color: white;
+    background: #333;
+}
+
+.footer a {
+    color: white !important;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.infosend {
+    float: right;
+}
+#Commentary{
+    min-height: 50px;
+    max-height: 400px;
+}
+.invalid {
+    color: #d9534f;
+}
