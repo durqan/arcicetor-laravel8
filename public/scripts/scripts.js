@@ -35,54 +35,93 @@ $(function () {
         }
     });
 
+    jQuery.validator.addMethod("alpha", function(value, element) {
+        return this.optional(element) || /[а-яА-я]/.test(value);
+    }, "В поле должны быть только буквы");
+
     $('form').validate({
-        onfocusout: false,
         rules: {
-            Name: 'required',
-            LastName: 'required',
-            SecondName: 'required',
-            Email: {
-                email: true,
+            Name: {
                 required: true,
+                maxlength: 20,
+                alpha: true,
+            },
+            SecondName: {
+                required: true,
+                maxlength: 20,
+                alpha: true,
+            },
+            LastName: {
+                required: true,
+                maxlength: 20,
+                alpha: true,
+            },
+            Email: {
+                required: true,
+                email: true,
+            },
+            PhoneNumber: {
+                required: true,
+                maxlength: 30,
+                digits: true,
             },
         },
         messages: {
-            Name: 'Это поле обязательно',
-            LastName: 'Это поле обязательно',
-            SecondName: 'Это поле обязательно',
+            Name: {
+                required: "Это поле обязательно",
+                maxlength: "Это поле не должно быть больше 20 символов",
+                alpha: "Поле должно быть только из букв русского алфавита",
+            },
+            SecondName: {
+                required: "Это поле обязательно",
+                maxlength: "Это поле не должно быть больше 20 символов",
+                alpha: "Поле должно быть только из букв русского алфавита",
+            },
+            LastName: {
+                required: "Это поле обязательно",
+                maxlength: "Это поле не должно быть больше 20 символов",
+                alpha: "Поле должно быть только из букв русского алфавита",
+            },
             Email: {
-                email: 'Введите почту в формате name@example.ru(com)',
-                required: 'Это поле обязательно',
+                required: "Это поле обязательно",
+                email: "Укажите правильный адрес почты"
+            },
+            PhoneNumber: {
+                required: "Это поле обязательно",
+                maxlength: "Это поле не должно быть больше 30 символов",
+                digits: "Это поле должно содержать только цифры"
             },
         },
-        errorClass: 'invalid',
-    });
+        errorClass: "invalid",
+        submitHandler: function (form, event) {
+            event.preventDefault();
 
-    $('form').on('submit', function (e) {
-        e.preventDefault();
-        let Name = $('#Name').val();
-        let SecondName = $('#SecondName').val();
-        let LastName = $('#LastName').val();
-        let PhoneNumber = $('#PhoneNumber').val();
-        let Email = $('#Email').val();
-        let Commentary = $('#Commentary').val();
+            let Name = $(form).find('#Name').val();
+            let SecondName = $(form).find('#SecondName').val();
+            let LastName = $(form).find('#LastName').val();
+            let PhoneNumber = $(form).find('#PhoneNumber').val();
+            let Email = $(form).find('#Email').val();
+            let Commentary = $(form).find('#Commentary').val();
 
-        $.ajax({
-            url: "/SendEmail",
-            method: "post",
-            data: {
-                Name: Name,
-                SecondName: SecondName,
-                LastName: LastName,
-                PhoneNumber: PhoneNumber,
-                Email: Email,
-                Commentary: Commentary
-            },
-            success: function (e) {
-                $('.modal').modal('hide');
-                $('textarea').val('');
-                $('input').val('');
-            }
-        });
+            $.ajax({
+                url: "/SendEmail",
+                method: "post",
+                dataType: "json",
+                data: {
+                    Name: Name,
+                    SecondName: SecondName,
+                    LastName: LastName,
+                    PhoneNumber: PhoneNumber,
+                    Email: Email,
+                    Commentary: Commentary
+                },
+                success: function (e) {
+                    console.log(e);
+                    $('.modal').modal('hide');
+                    $('textarea').val('');
+                    $('input').val('');
+                },
+            });
+        },
     });
 });

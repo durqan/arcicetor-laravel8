@@ -180,6 +180,7 @@ img {
     min-height: 50px;
     max-height: 400px;
 }
-.invalid {
-    color: #d9534f;
+
+#Name-error, #SecondName-error, #LastName-error, #Email-error, #PhoneNumber-error {
+    color: #ff5661;
 }

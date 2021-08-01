@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderShipController;
+use App\Http\Controllers\ValidateEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,4 @@ use App\Http\Controllers\OrderShipController;
 Route::get('/', function () {
     return view('general');
 });
-//Route::post('/SendEmail', OrderShipController::class);
+Route::post('/SendEmail', [ValidateEmail::class, 'validates']);
